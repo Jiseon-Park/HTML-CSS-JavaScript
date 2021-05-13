@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 메뉴 만들기2 </title>
+<style>
+    /* 스타일 작성해서 메뉴 만들기2 */
+    
+    nav ul { 
+        border: 1px;
+        list-style-type: none; /* 앞에 리스트 기호 제거 */
+        margin: 0; padding: 0;
+        background-color: #444; 
+        overflow: hidden; /* 딸려왔던 과일들 아래로 밀기 */
+    }
+    
+    nav li {
+        float: left; /* 가로로 배열 */      
+        border-right: 2px solid #999; /* 메뉴 줄 긋기 */
+    }
+    
+    nav a { 
+        text-decoration: none; /* 밑줄 제거 */
+        padding: 20px 20px; /* 패딩 상하 좌우가 a가 인라인이라 안 먹음 */
+        display: block; /* a인라인을 블락으로 변경하면 패딩 적용됨 */
+        font-size: 1.5em; /* 1.5배 글씨 크게 */
+        color: white; 
+        text-align: center; 
+    }
+    
+    nav .active, nav a.active:hover { 
+        background-color: red; color: white; 
+    }
+    
+    nav a:hover {
+        background-color: #aaa; /* 조금 더 밝게 글씨 색 변경 */
+    }
+    
+    nav li:last-child {
+        float: right;
+        border-left: 2px solid #999; /* about 왼쪽에 줄 긋기 */
+        border-right: none; /* 오른쪽에 줄 생긴거 제거 */
+    }
+ 
+</style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+    <div>
+        <ul>
+            <li>사과</li>
+            <li>배</li>
+            <li>복숭아</li>
+        </ul>
+    </div>
+</body>
+</html>
