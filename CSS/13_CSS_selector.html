@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS Selector</title>
+<style>
+    h1, p, div { color: blue; }
+    
+    div {
+        width: 100px; height: 100px;
+        border: 1px solid black;
+    }
+    
+    div > div { /* div 자식의 div */
+        background-color: yellow;
+    }
+    
+    body > div { /* body 자식의 div */
+        border: 2px dotted blue;
+    }
+    
+    body > div > div { /* body 자식의 div 자식의 div */
+        width: 50px; height: 50px;
+        background-color: green;
+    }
+    
+    body > div > div > div {
+        width: 20px; height: 20px;
+        background-color: gray;
+    }
+    
+    .d2 {
+        background-color: aqua;
+    }
+    
+    .bg-orange {
+        background-color: orange;
+    }
+    
+</style>
+</head>
+<body>
+    <h1> CSS div 선택자(selector) </h1>
+    <p> div의 선택자(selector)에 따른 border색, 바탕색 지정 </p>
+    <div class="d2"> 1 </div> <!-- 여러 id, 동일명 id 자주 사용하면 안됨 / 유니크 해야 됨
+                                    자바 스크립트할 때 문제 많이 발생 -->
+    <hr>
+    
+    <div class="d2"> 2 </div>
+    <hr>
+    
+    <div id="div3">
+        <div class="bg-orange"> 3 </div>
+        <section>
+            <div> s3 </div> <!-- div 자식의 div아님 직접 자식이여야 하나봄!! --> 
+        </section>
+    </div>
+    <hr>
+    
+    <div>
+        <div>
+            <div> 4 </div>
+        </div>
+    </div>
+    <hr>
+    
+    <div> 
+        <div>
+            <div> 1 </div>
+            <div class="bg-orange"> 2 </div>
+            <div class="bg-orange"> 3 </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
