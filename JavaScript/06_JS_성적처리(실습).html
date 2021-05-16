@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript 성적 처리</title>
+<script>
+    /*
+    한 사람의 성적을 입력받아 결과 출력
+    입력 값 : 이름, 국어, 영어, 수학 점수(화면 입력 prompt)
+    계산 처리 : 총점, 평균(소수점 2자리 or 정수)
+    결과 출력 : 브라우저 화면에 결과 출력
+    ----------
+    이름 : 홍길동
+    국어 : 100
+    영어 : 90
+    수학 : 80
+    ----------
+    총점 : 270
+    평균 : 90.0
+    
+    */
+    
+    // var 사용 시 중복 변수 선언에 대한 에러가 없지만 
+    // let, const 사용 시 중복 변수 선언에 대한 에러 O
+    
+    let name = prompt("이름 입력하세요");
+    let korTemp = prompt("국어 점수 입력하세요");
+    let kor = parseInt(korTemp);
+    let engTemp = prompt("영어 점수 입력하세요");
+    let eng = parseInt(engTemp);
+    let mathTemp = prompt("수학 점수 입력하세요");
+    let math = parseInt(mathTemp);
+    let total = kor + eng + math;
+    let avg = (total / 3).toFixed(2);
+    
+    // 이런 방법도 있음!!
+    // kor = Number(kor); 
+    // avg = parseInt(tot * 100 / 3) / 100;
+    // avg = Math.round(tot * 100 / 3) / 100;
+    
+    document.write("------------------<br>");
+    document.write("이름 : " + name + "<br>",
+                   "국어 : " + kor + "<br>", 
+                   "영어 : " + eng + "<br>", 
+                   "수학 : " + math + "<br>");
+    document.write("------------------<br>");
+    document.write("총점 : " + total + "<br>",
+                   "평균 : " + avg + "<br>");
+    
+</script>
+</head>
+<body>
+
+</body>
+</html>
