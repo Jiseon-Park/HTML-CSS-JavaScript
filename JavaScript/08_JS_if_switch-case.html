@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>if, switch-case</title>
+<script>
+    // if (조건식) {}
+    // if (조건식) {} else {}
+    // if (조건식) {} else if () {} else if () {} else {}
+    if (true) {
+        document.write("if문이 true인 경우 출력", "<br>");
+        }
+    
+    let bool = confirm("true 출력<확인> 선택, false 출력<취소> 선택");
+    if(bool) {
+        document.write("확인 선택 - true", "<br>");
+    } else {
+        document.write("취소 선택 - false", "<br>");      
+    }
+    document.write("<hr>");
+    
+    // ====================
+    
+    /*
+    (실습) 점수를 입력받고 점수에 따라 평가하고 결과를 화면에 출력(표시)
+    90 이상 : A, 80 이상 : B, 70 이상 : C, 70 미만 : D
+    출력 형태 : 점수 90 - 평가 결과 : A
+    */
+    document.write("--- 자바스크립트 끝 ---", "<br>");
+    
+    // var score = prompt("점수를 입력하세요", 0); 
+    // --> 점수 입력 안했을 경우 0점 처리
+    
+    let score = prompt("점수를 입력하세요");
+    
+    if (score >= 0 && score <= 100){
+    if (score >= 90) {
+        document.write("점수 : " + score + " - 평가 결과 : A");
+    } else if (score >= 80) {
+        document.write("점수 : " + score + " - 평가 결과 : B");
+    } else if (score >= 70) {
+        document.write("점수 : " + score + " - 평가 결과 : C");
+    } else {
+        document.write("점수 : " + score + " - 평가 결과 : D");
+    }
+    } else {
+        document.write("0 ~ 100 사이의 점수를 입력하세요");
+    }
+    
+    // -------------------------- 중복을 줄이는 방법
+    
+    document.write("<hr>");
+    
+    var score2 = prompt("점수를 입력하세요", 0);
+    document.write("입력 값 : - " + score2 + " -, 타입 : " + typeof score2, "<br>");
+    document.write("isNaN(score) : " + isNaN(score2), "<br>");
+    
+    let result = "평가 안됨";
+    if (isNaN(score2) || score2 === "") {
+        result = "숫자가 아님(NaN)";
+    } else if (score2 < 0 || score2 > 100) { // 정상 범위가 아니라는 뜻
+        result = "정상 범위(0 ~ 100) 아님";
+    } else if (score2 >= 90) {
+        result = "A";
+    } else if (score2 >= 80) {
+        result = "B";
+    } else if (score2 >= 70) {
+        result = "C";
+    } else if (score2 >= 0) {
+        result = "D";
+    } else {
+        result = "[입력 오류]";
+    }
+    document.write("점수 : " + score2 + " - 평가 결과 : " + result + "<br>");
+    
+    document.write("<hr>");
+    
+    
+    
+    // ====================
+    // 지금 상황에서 if를 사용하는 것이 맞지만 switch 사용을 보여주기 위해 사용
+    let divScore = Math.floor(score / 10); // 88 / 10 -> 8.8 -> 8
+    switch (divScore) {
+        case 10 :
+//            result = "A";
+//            break;
+        case 19 :
+            result = "A";
+            break;
+        case 8 :
+            result = "B";
+            break;
+        case 7 :
+            result = "C";
+            break;
+        default :
+            result = "D"
+            break; // 어차피 디폴트 만나면 자동으로 조건문 빠져나가지만 형식상 써준다
+    }
+    document.write("점수 : " + score + " - 평가 결과 : " + result + "<br>");
+    
+    document.write("<hr>");
+    
+    
+    
+    
+    // ====================
+    
+    document.write("-------숫자 문자열 vs 숫자 : 숫자 형변환-------<br>")    
+    document.write("'100' > '20' : " + ('100' > '20'), "<br>");
+    // false 출력 --> 문자열 1과 2를 비교하여 20이 더 큼!!
+    document.write("100 > 20 : " + (100 > 20), "<br>");  
+    // true 출력 --> 당연한 결과
+    document.write("'100' > 20 : " + ('100' > 20), "<br>");  
+    // true 출력 --> 숫자와 문자(숫자)를 비교할 땐 문자(숫자)가 숫자로 자동 형변환 처리되기 때문!!
+    
+    document.write("-------문자열 vs 문자열-------<br>")
+    document.write("'100A' > 20 : " + ('100A' > 20), "<br>");  
+    // false 출력
+    document.write("'A100A' > 20 : " + ('A100A' > 20), "<br>");  
+    // false 출력
+    document.write("'AAA' > 20 : " + ('AAA' > 20), "<br>");  
+    // false 출력
+    document.write("'100A' > '100B' : " + ('100A' > '100B'), "<br>");  
+    // false 출력
+    document.write("'100B' > '100A' : " + ('100B' > '100A'), "<br>");  
+    // true 출력 --> 아스키 코드에 의해서... B가 더 크기 때문
+    document.write("'A100' > '20' : " + ('A100' > '20'), "<br>");  
+    // true 출력 왜지..? 아스키 코드에서 A가 숫자 보다 더 큰 것 같음!!
+    document.write("'AAA' > '20' : " + ('AAA' > '20'), "<br>");  
+    // true 출력   
+    
+    document.write("-------문자열(숫자 아닌) vs 숫자-------<br>")    
+    document.write("'A100' > 20 : " + ('A100' > 20), "<br>");  
+    // false
+    document.write("'AAA' > 20 : " + ('AAA' > 20), "<br>");  
+    // false
+    document.write("<hr>");
+    
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
