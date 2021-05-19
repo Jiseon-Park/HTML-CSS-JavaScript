@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+<script>
+    /* 배열(Array) 생성 방법 3가지
+    1. var arr1 = new Array();
+    2. var arr2 = new Array("홍길동", 27, true);
+    --> 통상적으로 하나의 타입으로 쓰지만 여러 타입 사용 가능
+    3. var arr3 = ["홍길동", 27, true];
+    */
+    
+    // 1. var arr1 = new Array(); --> 자바 arrayList와 유사
+    document.write("<h3>배열 객체 생성 var arr1 = new Array()</h3>");
+    var arr1 = new Array();
+    document.write("arr1.length : " + arr1.length, "<br>");
+    arr1[0] = "홍길동";
+    arr1[1] = 27;
+    arr1[2] = true;
+    document.write("arr1.length : " + arr1.length, "<br>");
+    
+    // 배열 데이터 사용 --> 자바와 사용법 같음
+    document.write("arr1[0] : " + arr1[0], "<br>");
+    document.write("arr1[1] : " + arr1[1], "<br>");
+    document.write("arr1[2] : " + arr1[2], "<br>");
+    
+    document.write("arr1[3] : " + arr1[3], "<br>"); 
+    document.write("arr1[4] : " + arr1[4], "<br>"); 
+    // 데이터가 없는 상태 --> undefined 출력(자바처럼 에러는 안난다!!)
+    
+    document.write("arr1.length : " + arr1.length, "<br>");
+    // 3 출력
+    
+    // ----------------------------
+    // 2. var arr2 = new Array("홍길동", 27, true);
+    document.write('<h3>배열 객체 생성 var arr2 = new Array("홍길동", 27, true))</h3>');
+    var arr2 = new Array("홍길동", 27, true);
+    document.write("arr2.length : " + arr2.length, "<br>");    
+    
+    document.write("arr2[0] : " + arr2[0], "<br>");
+    document.write("arr2[1] : " + arr2[1], "<br>");
+    document.write("arr2[2] : " + arr2[2], "<br>");
+    document.write("<hr>");
+    
+    // -----------------------------
+    // 3. var arr3 = ["홍길동", 27, true];    
+    document.write('<h3>배열 객체 생성 var arr3 = ["홍길동", 27, true] </h3>');
+    var arr3 = ["홍길동", 27, true];    
+    
+    document.write("arr3[0] : " + arr3[0], "<br>");
+    document.write("arr3[1] : " + arr3[1], "<br>");
+    document.write("arr3[2] : " + arr3[2], "<br>");
+    document.write("<hr>");
+    
+    // ==============================
+    // 배열 객체에 있는 데이터 확인하기 위한 반복문
+    // 일반 for문
+    document.write("<h3> 일반 for문으로 데이터 조회</h3>");
+    for (let i = 0; i < arr3.length; i++) {
+        document.write("arr3[" + i + "] : " + arr3[i], "<br>");
+    }
+    
+    // 배열 : for ~ in 형태의 for문 : 변수 값이 배열의 인덱스 번호
+    document.write("<h3>for ~ in문으로 데이터 조회</h3>");    
+    for (let idx in arr3) {
+        document.write("idx : " + idx, "<br>");
+        document.write("arr3[" + idx + "] : " + arr3[idx], "<br>");
+    }
+    
+    // 배열 : for ~ of 형태의 for문 : 변수 값이 저장된 데이터(요소)
+    document.write("<h3>for ~ of문으로 데이터 조회</h3>");
+    for (let arrValue of arr3) {
+        document.write("arrValue : " + arrValue, "<br>");
+    }
+    document.write("<hr><hr>");
+    
+    // ==============================
+    document.write("arr3.length : " + arr3.length, "<br>");
+    arr3[5] = "김유신"; // 0,1,2, x, x, 5번 인덱스에 값 저장
+    document.write("arr3.length : " + arr3.length, "<br>"); // 6 출력(실제로 4개 밖에 없는데 이렇게 출력)
+    document.write("<hr>");
+    
+    document.write("arr3 : " + arr3, "<br>");
+    // 4, 5번 인덱스 값 : undefined 출력됨
+    
+    for (let arrValue of arr3) {
+        //if (arrValue != undefined) document.write(arrValue, "<br>");
+        if (arrValue) document.write(arrValue, "<br>"); 
+        // arr이 true일 경우 출력하라는 뜻(false : 0, undefined, NaN, nul...)
+        // --> 저장된 값이 false인 경우 스킵하란 뜻!!
+    } 
+    document.write("<hr>");
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
