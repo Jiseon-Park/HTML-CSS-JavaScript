@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>마우스 관련 이벤트</title>
+<script>
+    // 마우스 이벤트
+    // onmouseover : 마우스가 해당 영역으로 들어오면 발생(위에 있으면) --> hover랑 비슷
+    // onmouseout : 마우스가 해당 영역에서 벗어나면 발생(나가면)
+    
+    window.onload = function(){
+        var imgbtn = document.getElementById("imgbtn");
+        
+        imgbtn.onmouseover = function(){
+            imgbtn.firstElementChild.src = "images/btn2_yellow.png"; // 한 번 마우스 갖다대면 아예 노란색으로 바뀌고 회색으로 다시 바뀌지 않음 
+        };
+        
+        imgbtn.onmouseout = function(){ // 마우쓰 떼면 회색으로 다시 바뀜
+            imgbtn.firstElementChild.src = "images/btn2_gray.png";
+        };
+    }
+</script>
+<style>
+    #btn1, #btn2 { background-color: lightgray; }
+    #btn2:hover { background-color: yellow; }
+</style>
+</head>
+<body>
+    <button id="btn1"> 버튼1 </button>
+    <button id="btn2"> 버튼2 </button>
+    <hr>
+    
+    <a href="#" id="imgbtn">
+        <img src="images/btn2_gray.png" alt="버튼"> <!-- 버튼 그림 삽입한 것임 -->
+    </a>
+    
+   
+    
+    
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
