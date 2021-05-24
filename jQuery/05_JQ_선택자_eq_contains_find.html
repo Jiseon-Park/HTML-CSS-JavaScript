@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // 필터 선택자 - 선택자에 콜른(:) 기호를 포함한 선택자
+    // :contains(문자열) : 문자열을 포함하고 있는 요소
+    // :eq(index) : 인덱스 번호에 해당하는 요소
+    // :gt(index) : 인덱스 번호 보다 큰 요소
+    // :lt(index) : 인덱스 번호 보다 작은 요소
+    // $(선택자).find(필터) : 자손 태그 중 필터링 해서 찾기
+    // parent() : 부모 요소 선택
+    // siblings() : 형제 요소 선택
+    // -------------------------------------------------
+    // $(document).ready();
+    // $().ready();
+    // $();
+    
+    $(document).ready(function(){
+////        $("td:contains('java')").css("background-color", "yellow");
+//        $("td:contains('jsp')")
+//        .css("border", "3px dotted red")
+//        .siblings()
+//        .css("color", "red")
+//        .parent()
+//        .css("background-color", "aqua"); // 형제 요소 선택(기준 요소 선택 안함)
+//    
+//        $("td:eq(2)").css("background-color", "orange"); // 2번 td : 2.3
+//        $("td:lt(2)").css("background-color", "blue");
+//        $("td:gt(2)").css("background-color", "violet");
+//        
+////      $(선택자).find(필터) : 자손 태그 중 필터링 해서 찾기
+//        $("tbody").find("td:gt(0)").css("background-color", "gray"); // JSP 빼고 전부 
+//        $("td:contains('basic')")
+//            .parent()
+//            .find("td:gt(1)") // find 메서드는 부모 태그 기준 자손에서 찾는다
+//            .css("background-color", "yellow");
+        $(".c1").find("td:eq(0)").css("background-color", "yellow");
+        $(".c1 td:eq(0)").css("color", "red"); // 윗 줄과 같은 결과 
+
+    }); // import CDN 되어있는지 상태 반드시 확인
+// ============================================
+
+        
+</script>
+</head>
+<body>
+    <table border>
+        <thead class="c1">
+            <tr>
+                <th> 과목 </th>
+                <th> 상세 내용 </th>
+                <th> 비고(버전) </th>
+            </tr>
+        </thead>     
+        <tbody class="c1">
+            <tr>
+                <td> JSP </td>
+                <td> Servlet, EL, JSTL </td>
+                <td> 2.3</td>
+            </tr>
+            <tr>
+                <td> Java </td>
+                <td> basic </td>
+                <td> 8.0 </td>
+            </tr>
+        </tbody>
+    </table>
+   
+    
+    
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
