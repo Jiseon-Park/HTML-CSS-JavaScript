@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>이미지 전환</title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // prev, next 버튼이 클릭되었을 때 처리
+    // prev : 이전 이미지 표시, next : 다음 이미지 표시
+    $(document).ready(function(){
+       var imgNum = 1;
+        // next 버튼 클릭시 : 다음 이미지 표시(img 태그 src값 변경)
+        $("#next").click(function(){
+            imgNum++;
+            if(imgNum > 10) imgNum = 1; // 첫번째 이미지로 돌아가기
+            if(imgNum < 10){
+                imgNum = "0" + imgNum;
+            } 
+            $("img").prop("src", "images/bimg" + imgNum +".jpg");
+            console.log($("img").prop("src"));
+        });
+        // prev 버튼 클릭시 : 이전 이미지 표시(img 태그 src값 변경)
+        $("#prev").click(function(){ 
+            imgNum--;
+            if(imgNum < 1) imgNum = 10; // 마지막 이미지로 이동
+            imgNum = (imgNum < 10) ? "0" + imgNum : imgNum;
+            
+            $("img").prop("src", "images/bimg" + imgNum +".jpg");
+            console.log($("img").prop("src"));
+        });
+    });
+</script>
+<style>
+    div {
+        width: 320px;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    div > a {
+        /* 위치 지정 */
+        position: absolute;
+        top: 150px; left: 20px;
+        
+        /* 모양 지정 */
+        width: 50px; height: 40px;
+        background-color: yellow;
+        border-radius: 30%;
+        
+        /* 텍스트 설정 */
+        text-decoration: none;
+        text-align: center;
+        line-height: 40px; /* height랑 값 똑같이 줘야 세로 정렬됨 */
+    }    
+    #next { left: 250px;}
+</style>
+</head>
+<body>
+    <div>
+        <img src="images/bimg01.jpg" alt="상품이미지">
+        <a id="prev" href="#"> prev </a>
+        <a id="next" href="#"> next </a>
+    </div>
+    
+   
+    
+    
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

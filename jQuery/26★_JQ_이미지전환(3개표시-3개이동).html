@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    * { margin: 0; padding: 0; }
+    #simgs {
+        width: 528px;
+        height: 176px;
+        
+        border: 1px solid black;
+        position: relative;
+        left: 50px;
+        /*overflow: hidden;*/
+    }
+    #simgs > ul { list-style: none; }
+    #simgs > ul > li { float: left; }
+    #simgs > a {
+        clear: both;
+        position: absolute;
+        width: 50px; height: 50px;
+        border-radius: 50%;
+        background-color: yellow;
+        
+        top: 70px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+    #prev { left: 0px; }
+    #next { right: 0px; }
+</style>    
+<script>
+    //append(), prepend() 메소드 사용해서 이미지 이동
+    //next, prev 클릭시 : 이미지를 3개씩 이동
+    $(function(){
+        //(실습) next 클릭시 다음 이미지 3개 표시(이동)
+        $("#next").click(function(){
+            for (let i=0; i<3; i++) {
+                $("#imgUl").append($("#imgUl>li").first());
+            }
+            //앞에서 3개 선택하고 맨뒤에 붙이기
+            //$("#imgUl>li:nth-child(-n+3)").css("border", "1px solid red");
+            //$("#imgUl").append($("#imgUl>li:nth-child(-n+3)"));
+            $("#imgUl").append($("#imgUl>li").slice(0,3));
+        });
+        
+        //(실습) prev 클릭시 이전 이미지 3개 표시(이동)
+        $("#prev").click(function(){
+            for (let i=0; i<3; i++) {
+                $("#imgUl").prepend($("#imgUl>li").last());
+            }
+            //뒤에서 3개 선택 : nth-last-child(-n+3)
+            //$("#imgUl").prepend($("#imgUl>li:nth-last-child(-n+3)"));
+            //$("#imgUl").prepend($("#imgUl>li").slice(-3));
+        });
+    });
+</script>
+</head>
+<body>
+    <div id="simgs">
+        <ul id="imgUl">
+            <li><img src="images/simg01.jpg"></li>
+            <li><img src="images/simg02.jpg"></li>
+            <li><img src="images/simg03.jpg"></li>
+            <li><img src="images/simg04.jpg"></li>
+            <li><img src="images/simg05.jpg"></li>
+            <li><img src="images/simg06.jpg"></li>
+            <li><img src="images/simg07.jpg"></li>
+            <li><img src="images/simg08.jpg"></li>
+            <li><img src="images/simg09.jpg"></li>
+            <li><img src="images/simg10.jpg"></li>
+        </ul>
+        <a id="prev">&lt;&lt;</a>
+        <a id="next">&gt;&gt;</a>
+
+    </div>
+   
+    
+    
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
