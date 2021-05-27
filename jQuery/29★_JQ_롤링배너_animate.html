@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- jQuery import 방식2(CDN 방식) -->
+    <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+<style>
+    * { margin: 0; padding: 0; }
+    h2 { text-align: center; }
+    #banner-wrap {
+        width: 600px;
+        border: 1px solid #aaa;
+        padding: 20px;
+        margin: 50px auto;
+    }
+    #frame {
+        width: 600px;
+        position: relative;
+        overflow: hidden;  /*흘러 넘치는거 안 보이게 하려고 처리*/ 
+    }
+    
+    #banner { width: 3000px; }
+    
+    li img { width: 200px; }
+    
+    li {
+        list-style: none;
+        float: left;
+        width: 200px;
+    }
+    
+    #banner-wrap p { 
+        clear: both; 
+        text-align: center; 
+    }
+    
+    #banner-wrap a { text-decoration: none; }
+</style>
+<script>
+    $(document).ready(function(){
+        var $list = $("#banner"); // 그림 추가를 위한 변수 생성
+        // 이미지 복사 & 붙여넣기 : 맨 앞의 3개 이미지 맨 뒤에 복사하기
+        $list.append($("#banner>li:lt(3)").clone()); // clone : 복사 
+        
+        var clickCnt = 0;
+        $("#next").click(function(){
+           console.log("clickCnt : " + clickCnt);
+           if (clickCnt >= 5) { // 맨 마지막까지 보여준 경우
+               $list.css("margin-left", "0px");
+               clickCnt = 0; // 첫번째 사진으로 돌아가니까 0으로 만들기 
+           }
+           clickCnt++
+           $list.animate({"margin-left": -200 * clickCnt + "px"}, 1000);
+       });
+        
+        // (실습) 이전(prev) 버튼 클릭에 대한 처리
+        $("#prev").click(function(){
+            console.log("clickCnt : " + clickCnt);
+            if (clickCnt <= 0) {
+                clickCnt = 5;
+                $list.css("margin-left", -200 * clickCnt + "px");
+                clickCnt = 5;   
+            }
+            clickCnt--;
+            $list.animate({"margin-left": -200 * clickCnt + "px"}, 1000);
+        });
+    });
+</script>
+</head>
+<body>
+    <h2> 롤링 슬라이드 배너 만들기 </h2>
+    <hr>
+    <div id="banner-wrap">
+        <div id="frame">
+            <ul id="banner">
+                <li><a href="#"> <img src="images/pic_1.jpg"> </a></li>
+                <li><a href="#"> <img src="images/pic_2.jpg"> </a></li>
+                <li><a href="#"> <img src="images/pic_3.jpg"> </a></li>
+                <li><a href="#"> <img src="images/pic_4.jpg"> </a></li>
+                <li><a href="#"> <img src="images/pic_5.jpg"> </a></li>
+                
+        
+            </ul>
+        </div>
+        <p>
+            <a href="#" id="prev"> 
+                <img src="images/prev_btn.png">
+            </a>
+            <span> 이동하기 </span>
+            <a href="#" id="next"> 
+                <img src="images/next_btn.png">
+            </a>
+        </p>
+    </div>
+    
+   
+    
+    
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
